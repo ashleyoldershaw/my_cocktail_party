@@ -1,0 +1,12 @@
+TEXT
+<*,*,*,*>: "I was trying to #CHECKPOINT#, I want to #INTENDED ACTION#"
+----
+TTS
+<*,*,*,*>: "You stopped me. Can you show me what to do?"
+----
+BUTTONS
+empty_ok
+<*,*,*,*>: "Ok"
+empty_no
+<*,*,*,*>: "Nevermind"
+----

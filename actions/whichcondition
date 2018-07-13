@@ -1,0 +1,16 @@
+TEXT
+<*,*,*,*>: "What was the problem?"
+----
+TTS
+<*,*,*,*>: "What made me go wrong?"
+----
+BUTTONS
+condition_personhere
+<*,*,*,*>: "There's a person here"
+condition_notpersonhere
+<*,*,*,*>: "There's nobody there"
+condition_closetotarget
+<*,*,*,*>: "I'm nearly at the target"
+condition_notclosetotarget
+<*,*,*,*>: "I'm not near the target"
+----

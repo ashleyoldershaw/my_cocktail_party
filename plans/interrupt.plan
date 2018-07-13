@@ -1,0 +1,11 @@
+GUIstart;
+interact_interrupt000empty_@B;
+interact_whichcondition000condition_@C;
+rulebuilder_addcondition_@C;
+LABEL_ADDRULE;
+unknownvar_@R;
+interact_whichrecovery000recovery_@R;
+<equals_@R_say? unknownvar_@T; interact_textinput000@T; rulebuilder_addrecoverystep_@R_@T: not equals_@R_say?  >
+# the @R is intended to make the agent do the command entered, then go to the addrule label
+<not (or equal_@R_fail equal_@R_skip equal_@R_restartplan equal_@R_restartaction)? @R; rulebuilder_addrecoverystep_@R; GOTO_LABEL_ADDRULE: (or equal_@R_fail equal_@R_skip equal_@R_restartplan equal_@R_restartaction)? interact_namerecovery000name_@name; rulebuilder_addname_@name; rulebuilder_addrecoverystep_@R; interact_rulelearned>
+

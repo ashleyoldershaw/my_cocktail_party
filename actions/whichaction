@@ -1,0 +1,14 @@
+TEXT
+<*,*,*,*>: "What was I doing?"
+----
+TTS
+<*,*,*,*>: "What was I doing when I went wrong?"
+----
+BUTTONS
+goto
+<*,*,*,*>: "Moving"
+give
+<*,*,*,*>: "Giving something"
+grab
+<*,*,*,*>: "Trying to grasp something"
+----

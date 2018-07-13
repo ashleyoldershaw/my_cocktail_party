@@ -1,0 +1,9 @@
+TEXT
+<*,*,*,*>: "I'm going to get your beer from the fridge"
+----
+TTS
+<*,*,*,*>: "I'm going to get your beer from the fridge"
+----
+IMAGE
+<*,*,*,*>: img/beer.jpg
+----

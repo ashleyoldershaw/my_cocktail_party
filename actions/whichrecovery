@@ -1,0 +1,18 @@
+TEXT
+<*,*,*,*>: "Choose a recovery action."
+----
+TTS
+<*,*,*,*>: "Choose a recovery action for me to learn."
+----
+BUTTONS
+recovery_other
+<*,*,*,*>: "Placeholder action"
+recovery_restartplan
+<*,*,*,*>: "Restart the plan from the beginning"
+recovery_restartaction
+<*,*,*,*>: "Restart the action I was doing"
+recovery_fail
+<*,*,*,*>: "Plan is finished/failed"
+recovery_skip
+<*,*,*,*>: "Skip to the next action"
+----

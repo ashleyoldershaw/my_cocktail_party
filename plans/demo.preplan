@@ -1,0 +1,5 @@
+action1;
+action2; !*if* condition1 *do* recoverysequence; skip_action *confidence* 0.5! !*if* condition2 *do* recovery2; restart_action *confidence* 0.15! !*if* condition3 *do* recovery3; goal *confidence* 0.85!
+action3;
+
+

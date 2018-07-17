@@ -7,12 +7,16 @@ TTS
 BUTTONS
 recovery_other
 <*,*,*,*>: "Placeholder action"
+recovery_say
+<*,*,*,*>: "Say something out loud"
 recovery_restartplan
 <*,*,*,*>: "Restart the plan from the beginning"
 recovery_restartaction
 <*,*,*,*>: "Restart the action I was doing"
-recovery_fail
+recovery_failplan
 <*,*,*,*>: "Plan is finished/failed"
-recovery_skip
+recovery_skipaction
 <*,*,*,*>: "Skip to the next action"
+recovery_GOTO
+<*,*,*,*>: "Go to a specific point in the plan"
 ----

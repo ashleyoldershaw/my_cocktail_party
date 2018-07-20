@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import rospy
 
 terminal_actions = ["skip_action", "fail_plan", "goal", "restart_plan", "restart_action"]

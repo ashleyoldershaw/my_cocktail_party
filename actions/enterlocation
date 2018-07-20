@@ -1,0 +1,18 @@
+TEXT
+<*,*,*,*>: "Choose a location to go to."
+----
+TTS
+<*,*,*,*>: "Where should I go?"
+----
+BUTTONS
+location_entrance
+<*,*,*,*>: "Front door"
+location_livingroom
+<*,*,*,*>: "Living room"
+location_bedroom
+<*,*,*,*>: "Bedroom"
+location_kitchen
+<*,*,*,*>: "Kitchen"
+location_kitchentable
+<*,*,*,*>: "Kitchen table"
+----

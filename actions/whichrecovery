@@ -5,18 +5,20 @@ TTS
 <*,*,*,*>: "Choose a recovery action for me to learn."
 ----
 BUTTONS
-recovery_other
+recovery_goto_notext
+<*,*,*,*>: "Go to a location"
+recovery_lookfor_text
 <*,*,*,*>: "Placeholder action"
-recovery_say
+recovery_say_text
 <*,*,*,*>: "Say something out loud"
-recovery_restartplan
+recovery_restartplan_notext
 <*,*,*,*>: "Restart the plan from the beginning"
-recovery_restartaction
+recovery_restartaction_notext
 <*,*,*,*>: "Restart the action I was doing"
-recovery_failplan
+recovery_failplan_notext
 <*,*,*,*>: "Plan is finished/failed"
-recovery_skipaction
+recovery_skipaction_notext
 <*,*,*,*>: "Skip to the next action"
-recovery_GOTO
+recovery_GOTO_notext
 <*,*,*,*>: "Go to a specific point in the plan"
 ----

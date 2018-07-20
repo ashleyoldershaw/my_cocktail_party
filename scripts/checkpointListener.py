@@ -12,7 +12,11 @@ def callback(data):
         rospy.loginfo("New checkpoint: " + checkpoint)
     else:
         if (rospy.get_param('/diago_0/pnp/PNPCurrentPlan') not in ('interrupt', 'stop')) and (data.data != "abort"):
-            rospy.set_param('/diago_0/pnp/currentTask', data.data[0:-4])
+            if (len(data.data) > 5 and data.data[-6:] == ".exec;"): # if it ends like that it's an action, if not it's the last place
+                rospy.set_param('/diago_0/pnp/currentTask', data.data[0:-6])
+            else:
+                rospy.set_param('/diago_0/pnp/currentPlace',data.data)
+            
 
 def listener():
     rospy.Subscriber("/diago_0/pnp/currentActivePlaces", String, callback)
@@ -22,7 +26,9 @@ def listener():
 if __name__ == '__main__':
     rospy.init_node('checkpointListener', anonymous=True)
     rospy.set_param('/diago_0/pnp/checkpoint', "STARTER CHECKPOINT")
-    rospy.set_param('/diago_0/pnp/currentTask', "STARTER ACTION")    
+    rospy.set_param('/diago_0/pnp/currentTask', "STARTER ACTION")
+    rospy.set_param('/diago_0/pnp/currentPlace', "STARTER PLACE")
     pub = rospy.Publisher('/diago_0/pnp/checkpointString', String, queue_size=10)
+    print ("Listening to the PNP...")
     listener()
     

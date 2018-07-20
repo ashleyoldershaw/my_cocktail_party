@@ -2,13 +2,19 @@ GUIstart;
 interact_interrupt000empty_@B;
 interact_whichcondition000condition_@C;
 rulebuilder_addcondition_@C;
+# the rule adding loop, asks for an action, then based on a bool it asks for text input or not, then adds the rule, if it's a terminating action you name the rule and it'll publish it on a ros topic
 LABEL_ADDRULE;
 unknownvar_@R;
-interact_whichrecovery000recovery_@R;
-<equals_@R_say? unknownvar_@T; interact_textinput000@T; rulebuilder_addrecoverystep_say_@T: not equals_@R_say?  >
-# the @R is intended to make the agent do the command entered, then go to the addrule label
-<not (or equal_@R_fail equal_@R_skip equal_@R_restartplan equal_@R_restartaction equal_@R_GOTO)? rulebuilder_addrecoverystep_@R; GOTO_LABEL_ADDRULE: (or equal_@R_fail equal_@R_skip equal_@R_restartplan equal_@R_restartaction)? rulebuilder_addrecoverystep_@R : equal_@R_GOTO? interact_textinput000@T; rulebuilder_addrecoverystep_GOTO_LABEL_@T>
+unknownvar_@textbool;
+unknownvar_@CP;
+unknownvar_@T;
+unknownvar_@L;
+interact_whichrecovery000recovery_@R_@textbool;
+<equal_@textbool_text? unknownvar_@T; interact_textinput000text_@T; rulebuilder_addrecoverystep_@R_@T; GOTO_LABEL_ADDRULE : not equal_@textbool_text?  >
+<equal_@R_goto? interact_enterlocation000location_@L; exec_@R_@L; rulebuilder_addrecoverystep_@R_@L; GOTO_LABEL_ADDRULE: not equal_@R_goto?  >
+# if @R is not fail, restart, goal or GOTO do the loop again, otherwise finish up
+<not (or equal_@R_fail equal_@R_skip equal_@R_restartplan equal_@R_restartaction equal_@R_GOTO equal_@R_goal)? exec_@R; rulebuilder_addrecoverystep_@R; GOTO_LABEL_ADDRULE : (or equal_@R_fail equal_@R_skip equal_@R_restartplan equal_@R_restartaction equal_@R_goal)? rulebuilder_addrecoverystep_@R : equal_@R_GOTO? interact_getcheckpoint000@CP; rulebuilder_addrecoverystep_GOTO_LABEL_@CP >
 interact_namerecovery000name_@name;
-rulebuilder_addname_@name;
+rulebuilder_nameplan_@name;
 interact_rulelearned;
 

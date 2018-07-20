@@ -1,0 +1,4 @@
+GUIstart;
+get_confidence_@confidence;
+<equals_@confidence_low? interrupt :equals_@confidence_med? interact_askwhichplan000plan_@plan executeplan_@plan: equals_@confidence_high? interact_executingplan>
+goal;

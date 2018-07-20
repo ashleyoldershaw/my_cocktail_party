@@ -1,0 +1,16 @@
+TEXT
+<*,*,*,*>: "Choose a checkpoint to go to."
+----
+TTS
+<*,*,*,*>: "Where should I go?"
+----
+BUTTONS
+find95a95person
+<*,*,*,*>: "Find a person"
+get95person95a95drink
+<*,*,*,*>: "Get person a drink"
+fetching95drink
+<*,*,*,*>: "Fetching drink"
+leave95the95apartment
+<*,*,*,*>: "Leave the apartment"
+----

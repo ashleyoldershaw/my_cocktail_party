@@ -1,0 +1,10 @@
+TEXT
+<*,*,*,*>: "What should I say?"
+----
+TTS
+<*,*,*,*>: "What would you like me to say?"
+----
+BUTTONS
+input_ok
+<*,*,*,*>: "Done"
+----

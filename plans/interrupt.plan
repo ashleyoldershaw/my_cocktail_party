@@ -13,8 +13,8 @@ interact_whichrecovery000recovery_@R_@textbool;
 <equal_@textbool_text? unknownvar_@T; interact_textinput000text_@T; rulebuilder_addrecoverystep_@R_@T; GOTO_LABEL_ADDRULE : not equal_@textbool_text?  >
 <equal_@R_goto? interact_enterlocation000location_@L; exec_@R_@L; rulebuilder_addrecoverystep_@R_@L; GOTO_LABEL_ADDRULE: not equal_@R_goto?  >
 # if @R is not fail, restart, goal or GOTO do the loop again, otherwise finish up
-<not (or equal_@R_fail equal_@R_skip equal_@R_restartplan equal_@R_restartaction equal_@R_GOTO equal_@R_goal)? exec_@R; rulebuilder_addrecoverystep_@R; GOTO_LABEL_ADDRULE : (or equal_@R_fail equal_@R_skip equal_@R_restartplan equal_@R_restartaction equal_@R_goal)? rulebuilder_addrecoverystep_@R : equal_@R_GOTO? interact_getcheckpoint000@CP; rulebuilder_addrecoverystep_GOTO_LABEL_@CP >
-interact_namerecovery000name_@name;
-rulebuilder_nameplan_@name;
+<not (or equal_@R_fail equal_@R_skip95action equal_@R_restart95plan equal_@R_restart95action equal_@R_GOTO equal_@R_goal)? exec_@R; rulebuilder_addrecoverystep_@R; GOTO_LABEL_ADDRULE : (or equal_@R_fail equal_@R_skip95action equal_@R_restart95plan equal_@R_restart95action equal_@R_goal)? rulebuilder_addrecoverystep_@R : equal_@R_GOTO? interact_getcheckpoint000@CP; rulebuilder_addrecoverystep_GOTO_LABEL_@CP >
+#interact_namerecovery000name_@name;
+rulebuilder_nameplan_name;
 interact_rulelearned;
 

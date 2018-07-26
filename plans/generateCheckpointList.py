@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# this can be modified to dynamically create all sorts of MODIM pages which would be very useful
 import sys
 
 if (len(sys.argv) >= 2 and sys.argv[1] != "interrupt"):

@@ -24,8 +24,11 @@ On Pepper robot:
 
 In simulation run the command 
 ```
-rosparam set /pepper/PNPconditionbuffer/pepperheadtouched 1
+rosparam set /<robotname>/PNPconditionsBuffer/pepperheadtouched 1
 ```
+
+```<robotname>``` is ```diago_0``` by default on the simulator and ```peppino``` on the robot.
+
 
 * Interact with the robot to teach it the recovery procedure
 
@@ -50,13 +53,13 @@ Note: to run plans:
 
 ```
 cd my_cocktail_party/plans
-./runplan.sh pepper <planname>
+./runplan.sh <robotname> <planname>
 ```
 
 to stop plans:
 
 ```
-./runplan.sh pepper stop
+./runplan.sh <robotname> stop
 ```
 
 
@@ -96,7 +99,7 @@ export PEPPER_IP=<IP of Pepper robot>
 * start PNP
 
 ```
-roslaunch robocupathome_pnp rcathome_pnp.launch robotname:=pepper
+roslaunch robocupathome_pnp rcathome_pnp.launch robotname:=peppino
 ```
 
 

@@ -1,4 +1,5 @@
-GUIstart;
+#GUIstart;
+peppercmd_normalPosture;
 interact_interrupt000empty_@B;
 interact_whichcondition000condition_@C;
 rulebuilder_addcondition_@C;

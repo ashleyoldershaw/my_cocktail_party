@@ -1,0 +1,2 @@
+*if* obstaclehere *during* speed *do* say_i_have_detected_obstacle; waitfor_not_obstaclehere; say_i_am_continuing_the_plan;  restart_action
+

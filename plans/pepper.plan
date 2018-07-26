@@ -1,0 +1,14 @@
+peppercmd_normalPosture;
+say_i_am_running_a_task;
+#peppercmd_normalPosture;
+speed_10_0_10;
+say_i_am_looking_for_something;
+#peppercmd_normalPosture;
+#pepperheadscan|10;
+#wait_1;
+say_i_cannot_find_it_yet;
+say_i_am_going_ahead;
+#peppercmd_normalPosture;
+speed_10_0_20; 
+say_i_have_completed_my_task;
+

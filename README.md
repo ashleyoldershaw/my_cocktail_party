@@ -74,6 +74,9 @@ python checkpointListener.py
 
 Notes for starting the demo on Pepper robot:
 
+* copy ```my_cocktail_party``` on the Pepper robot after modifications of
+MODIM actions in folder ```spqrel_app/html```
+
 * start MODIM on the Pepper robot
 
 ```

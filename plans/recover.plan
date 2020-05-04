@@ -1,21 +1,22 @@
-#GUIstart;
-peppercmd_normalPosture;
+# LABEL_CHECKPOINT_LEARNING_PLAN;
+# GUIstart;
+# peppercmd_normalPosture;
 interact_interrupt000empty_@B;
 interact_whichcondition000condition_@C;
 rulebuilder_addcondition_@C;
 # the rule adding loop, asks for an action, then based on a bool it asks for text input or not, then adds the rule, if it's a terminating action you name the rule and it'll publish it on a ros topic
 LABEL_ADDRULE;
-unknownvar_@R;
+unknownvar_@rAction;
 unknownvar_@textbool;
 unknownvar_@CP;
 unknownvar_@T;
 unknownvar_@L;
-interact_whichrecovery000recovery_@R_@textbool;
-<equal_@textbool_text? unknownvar_@T; interact_textinput000text_@T; rulebuilder_addrecoverystep_@R_@T; GOTO_LABEL_ADDRULE : not equal_@textbool_text?  >
-<equal_@R_goto? interact_enterlocation000location_@L; exec_@R_@L; rulebuilder_addrecoverystep_@R_@L; GOTO_LABEL_ADDRULE: not equal_@R_goto?  >
-# if @R is not fail, restart, goal or GOTO do the loop again, otherwise finish up
-<not (or equal_@R_fail equal_@R_skip95action equal_@R_restart95plan equal_@R_restart95action equal_@R_GOTO equal_@R_goal)? exec_@R; rulebuilder_addrecoverystep_@R; GOTO_LABEL_ADDRULE : (or equal_@R_fail equal_@R_skip95action equal_@R_restart95plan equal_@R_restart95action equal_@R_goal)? rulebuilder_addrecoverystep_@R : equal_@R_GOTO? interact_getcheckpoint000@CP; rulebuilder_addrecoverystep_GOTO_LABEL_@CP >
+interact_whichrecovery000recovery_@rAction_@textbool;
+<equal_@textbool_text? unknownvar_@T; interact_textinput000text_@T; rulebuilder_addrecoverystep_@rAction_@T; GOTO_LABEL_ADDRULE : not equal_@textbool_text?  >
+<equal_@rAction_goto? interact_enterlocation000location_@L; rulebuilder_addrecoverystep_goto_@L; GOTO_LABEL_ADDRULE: not equal_@rAction_goto?  >
+# if @rAction is not fail, restart, goal or GOTO do the loop again, otherwise finish up
+<not (or equal_@rAction_failplan equal_@rAction_skipaction equal_@rAction_restartplan equal_@rAction_restartaction equal_@rAction_GOTO equal_@rAction_goal)? exec_@rAction; rulebuilder_addrecoverystep_@rAction; GOTO_LABEL_ADDRULE: (or equal_@rAction_failplan equal_@rAction_skipaction equal_@rAction_restartplan equal_@rAction_restartaction equal_@rAction_GOTO equal_@rAction_goal)? >
+<equal_@rAction_GOTO? interact_getcheckpoint000@CP; rulebuilder_addrecoverystep_GOTO_LABEL_@CP : not equal_@rAction_GOTO? rulebuilder_addrecoverystep_@rAction >
 #interact_namerecovery000name_@name;
 rulebuilder_nameplan_name;
 interact_rulelearned;
-

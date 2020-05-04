@@ -2,47 +2,27 @@
 
 How to run the demonstration:
 
-Important plans:
-
-In simulation:
-```cocktail_party_interaction.plan```: plan containing the normal task (e.g., output from a planner)
-
-On Pepper robot:
-```pepper.plan```: plan containing the normal task (e.g., output from a planner)
-
-```recover.plan```: plan implementing the recovery procedure
-
-```metaplan.plan```: metaplan, running ```pepperplan``` until Pepper head is touched and then switching to ```recover``` plan
-(to be modified if referring to another plan)
-
+Demo plan in simulation:
+`cocktail_party_interaction.plan`: plan containing the normal task (e.g., output from a planner)
 
 1. Learning phase
 
-* Run the ```metaplan``` plan
+* Run the `cocktail_party_interaction` plan
 
-* Touch the head of Pepper robot to activate the ```pepperheadtouched``` condition
+`<robotname>` is `diago_0` by default on the simulator
 
-In simulation run the command 
-```
-rosparam set /<robotname>/PNPconditionsBuffer/pepperheadtouched 1
-```
-
-```<robotname>``` is ```diago_0``` by default on the simulator and ```peppino``` on the robot.
-
+* When you see a problem, run the interrupt sender to begin the recovery procedure
 
 * Interact with the robot to teach it the recovery procedure
 
-TO CHECK: the script generateRules.py adds the execution rule generated during the interaction in ```generatedRules.er``` file
-
-
 2. After-learning phase
 
-* Run the ```pepper``` plan (including the new execution rules)
+* Run the `cocktail_party_interaction` plan (including the new execution rules)
 
 For example,
 
 ```
-./gen_plan.sh pepper.plan generatedRules.er
+./runplan.sh diago_0 cocktail_party_interaction
 ```
 
 The robot will now execute the learned recovery procedure.
@@ -63,46 +43,42 @@ to stop plans:
 ```
 
 
-Notes for starting the demo in simulation:
+Notes for starting the demo in simulation for the virtual machine, starting from the root directory:
 
-* Follow instructions in robocupathome_pnp/README 
-
-* Run the checkpoint listener script
+* Run the simulation starter
 
 ```
-cd my_cocktail_party/scripts
-python checkpointListener.py
+./run_default_demo.sh
 ```
 
+* Click start
 
-Notes for starting the demo on Pepper robot:
-
-* copy ```my_cocktail_party``` on the Pepper robot after modifications of
-MODIM actions in folder ```spqrel_app/html```
-
-* start MODIM on the Pepper robot
+* Open a new tab and run the MODIM starter
 
 ```
-source ~/.bashrc
-cd spqrel_app/html/my_cocktail_party
-python -m ws_server -robot pepper
+./setup_modim.sh
 ```
 
-* start ROS naoqi_driver
+* Open a new tab and run the PNP listener script
 
 ```
-cd ~/src/Pepper
-export PEPPER_IP=<IP of Pepper robot>
-./run_naoqi_driver.sh
+cd demos/my_cocktail_party/plans
+./generateRules.py
 ```
 
-* start PNP
+* Open a new tab and run the rule generator listener
 
 ```
-roslaunch robocupathome_pnp rcathome_pnp.launch robotname:=peppino
+cd demos/my_cocktail_party/plans
+./pnpListener.py
 ```
 
+* Open a new tab and run the interrupt listener
 
+```
+cd demos/my_cocktail_party/plans
+./interrupt_listener.py
+```
 
 How to add checkpoints to a plan:
 
@@ -115,13 +91,20 @@ Example:
 LABEL_CHECKPOINT_find_a_person;
 
 
-* Generate the checkpoint list files and MODIM actions:
+* Generate the checkpoint MODIM action:
 
 ```
 cd my_cocktail_party/plans
 python generateCheckpointList.py <planname>
 ```
 
-Output is ```<planname>.checkpoints``` and the MODIM action ```actions/getcheckpoint```
+Output is the MODIM action `actions/getcheckpoint`
 
 
+* Generate the recovery procedure stubs MODIM action:
+
+```
+cd my_cocktail_party/plans
+python generateActionList.py <planname>
+```
+Output is the MODIM action `actions/recoverychoices`

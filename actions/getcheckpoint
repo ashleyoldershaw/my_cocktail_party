@@ -5,12 +5,12 @@ TTS
 <*,*,*,*>: "Where should I go?"
 ----
 BUTTONS
-find95a95person
-<*,*,*,*>: "Find a person"
-get95person95a95drink
-<*,*,*,*>: "Get person a drink"
-fetching95drink
-<*,*,*,*>: "Fetching drink"
+take95a95drink95order
+<*,*,*,*>: "Take a drink order"
+get95a95drink
+<*,*,*,*>: "Get a drink"
+give95a95drink95to95someone
+<*,*,*,*>: "Give a drink to someone"
 leave95the95apartment
 <*,*,*,*>: "Leave the apartment"
 ----

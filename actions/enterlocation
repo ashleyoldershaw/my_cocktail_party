@@ -9,8 +9,8 @@ location_entrance
 <*,*,*,*>: "Front door"
 location_livingroom
 <*,*,*,*>: "Living room"
-location_bedroom
-<*,*,*,*>: "Bedroom"
+location_technicalroom
+<*,*,*,*>: "Office"
 location_kitchen
 <*,*,*,*>: "Kitchen"
 location_kitchentable

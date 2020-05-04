@@ -3,8 +3,9 @@
 import sys
 
 if (len(sys.argv) >= 2 and sys.argv[1] != "interrupt"):
+    print ("Creating checkpoint file for {}")
     output = ""
-    inputfile  = open(sys.argv[1]+".plan", "r")
+    inputfile  = open(sys.argv[1], "r")
     modimoutputfile = open("../actions/getcheckpoint", "w")
     modimoutputfile.write("""TEXT
 <*,*,*,*>: "Choose a checkpoint to go to."
@@ -21,11 +22,4 @@ BUTTONS
             print "Adding checkpoint: " + cpname
             modimoutputfile.write(cpname.replace("_", "95") + "\n<*,*,*,*>: \"" + cpname.replace("_", " ").capitalize() + "\"\n")
     modimoutputfile.write("----\n")
-            
-    if output != "":
-        listoutputfile = open(sys.argv[1]+".checkpoints", "w")
-        print "Writing to file: " + listoutputfile.name
-        listoutputfile.write(output)
-        
-    else:
-        print "No checkpoints found. Not writing anything..."
+    modimoutputfile.close()

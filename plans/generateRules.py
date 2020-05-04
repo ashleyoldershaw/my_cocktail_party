@@ -19,7 +19,7 @@ def callback(data):
     output = output.replace("restartplan", "restart_plan")
     output = output.replace("skipaction", "skip_action")
     output = output.strip()
-    output = output.strip(";")
+    output = output.strip(";") + "\n"
 
     outputfile = open("generatedRules.er", "a")
     outputfile.write(output)

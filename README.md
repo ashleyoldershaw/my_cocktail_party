@@ -17,6 +17,7 @@ Demo plan in simulation:
 
 2. After-learning phase
 
+* Copy the new execution rule from `generatedRules.py` to `cocktail_party_interaction.er`
 * Run the `cocktail_party_interaction` plan (including the new execution rules)
 
 For example,

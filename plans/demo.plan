@@ -1,3 +1,0 @@
-action1;
-action2; !*if* condition1 *do* interact_asktoexecute000reply_@E; recoverysequence; skip_action *confidence* 0.5!  !*if* condition3 *do* interact_executingplan; recovery3; goal *confidence* 0.85!
-action3;

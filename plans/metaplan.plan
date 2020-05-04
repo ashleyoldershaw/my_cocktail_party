@@ -1,2 +1,0 @@
-pepper; ! *if* pepperheadtouched *do* interrupt; fail_plan;  !
-

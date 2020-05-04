@@ -5,19 +5,26 @@ from std_msgs.msg import String
 def callback(data):
     rospy.loginfo("Rule recieved: %s", data.data)
     rospy.loginfo("Modifying rule to add current action")
-    currentaction = rospy.get_param("/diago_0/pnp/currentTask")
-    i = currentaction.find("_")
-    if i != -1:
-        currentaction = currentaction[:i]
-        
+    currentaction = rospy.get_param("/diago_0/pnp/currentTask").split("_")[0]
+
     output = data.data
     i = output.find("*do*")
     output = output [:i] + " *during* " + currentaction + " " + output[i:]
     output = output.replace("95", "_")
+    # these are here to convert MODIM outputs to PNP inputs
+    output = output.replace("notpersonhere", "(not personhere)")
+    output = output.replace("notclosetotarget", "(not closetotarget)")
+    output = output.replace("failplan", "fail_plan")
+    output = output.replace("restartaction", "restart_action")
+    output = output.replace("restartplan", "restart_plan")
+    output = output.replace("skipaction", "skip_action")
+    output = output.strip()
+    output = output.strip(";")
+
     outputfile = open("generatedRules.er", "a")
     outputfile.write(output)
     outputfile.close()
-    
+
 def listener():
 
     # In ROS, nodes are uniquely named. If two nodes with the same
